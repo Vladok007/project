@@ -35,9 +35,9 @@ let appData = {
      timeData : time,
      savings: true,
      chooseExpenses: function() {
-        for (let i = 0; i < 2; i++) {
-            let a = prompt ("Введите обязательную статью расходов в этом месяце", ""),
-                b = prompt ("Во сколько обойдется?", "");
+        for (let i = 0; i < 1; i++) {
+            let a = prompt ("Введіть обовязкові витрати в цьому місяці :", ""),
+                b = prompt ("Скільки це буде коштувати?", "");
         
             if ( typeof(a)==='string' && typeof(a) != null && typeof(b) != null && a != "" && b != "" && a.length < 50) 
             {
@@ -51,17 +51,16 @@ let appData = {
             } },
     
     chooseOptExpenses: function() {
-        for (let i = 1; i < 4; i++) {
-            let a = prompt ("Введите необязательную статью расходов в этом месяце", "");
+        for (let i = 1; i < 3; i++) {
+            let a = prompt ("Введіть додаткові необовязкові витрати в цьому місяці : ", "");
             appData.optionalExprenses [i] = (a);       
         }
-        alert("1:  " + appData.optionalExprenses[1] + '\n' + "2:  " + appData.optionalExprenses[2]+ 
-        '\n' + "3:  " + appData.optionalExprenses[3]);
+        alert("1:  " + appData.optionalExprenses[1] + '\n' + "2:  " + appData.optionalExprenses[2]);
 },
 
     detectDayBudget: function(){ 
         appData.moneyPerDay = (appData.budget / 30).toFixed();
-        alert ("Бюджет на 1 день составляет " + appData.moneyPerDay + "руб.");
+        alert ("Бюджет на 1 день становить :  " + appData.moneyPerDay + "  гривасіків");
     },
     detectLevel: function() {
         if (appData.moneyPerDay < 100) {
@@ -83,7 +82,7 @@ let appData = {
     }},
     chooseIncome: function() {
         for (let i = 0; i < 1; i++) {
-            let items = prompt ('Что принесет дополнительный доход? (укажите через запятую)','');
+            let items = prompt ('Що принесе додатковий прибуток? (вкажіть через кому)','');
         
             if ( typeof(items) === 'string'  && typeof(items) != null && items != "" &&  items.length < 50) 
             {
@@ -98,13 +97,13 @@ let appData = {
                 i--;}
             }
             appData.income.forEach(function(item, i){
-            alert('Способы доп. заработка : \n' + (i+1) + ':' + item );});
+            alert('Способы доп. заработка : \n' + (i+1) + ' :  ' + item );});
 
     }
      
 
 };
-console.log('Наш обєкт має такі властивості :  ');
-for (let key in appData) {
-    console.log( key + '  ' + appData[key]);
-}
+// console.log('Наш обєкт має такі властивості :  ');
+// for (let key in appData) {
+//     console.log( key + '  ' + appData[key]);
+// }
